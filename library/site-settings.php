@@ -75,6 +75,13 @@ class SiteSettings {
             'site_settings',
             'site_settings_section'
         );
+        add_settings_field(
+            'logo_url_mobile',
+            __( 'Logo URL for Mobile', 'leadeight' ),
+            array( $this, 'render_logo_url_mobile_field' ),
+            'site_settings',
+            'site_settings_section'
+        );
 
     }
 
@@ -163,8 +170,22 @@ class SiteSettings {
         $value = isset( $options['logo_url'] ) ? $options['logo_url'] : '';
 
         // Field output.
-        echo '<input type="text" name="site_settings[logo_url]" class="regular-text logo_url_field" placeholder="' . esc_attr__( '', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
-        echo '<p class="description">' . __( 'Relative to the theme file.', 'leadeight' ) . '</p>';
+        echo '<input type="text" name="site_settings[logo_url]" class="regular-text logo_url_field" placeholder="' . esc_attr__( '/dist/assets/images/logo.svg', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
+        echo '<p class="description">' . __( 'Logo of the theme. Please note the logo path is relative to the theme location. If empty, the logo will use the demo logo.', 'leadeight' ) . '</p>';
+
+    }
+
+    function render_logo_url_mobile_field() {
+
+        // Retrieve data from the database.
+        $options = get_option( 'site_settings' );
+
+        // Set default value.
+        $value = isset( $options['logo_url_mobile'] ) ? $options['logo_url_mobile'] : '';
+
+        // Field output.
+        echo '<input type="text" name="site_settings[logo_url_mobile]" class="regular-text logo_url_mobile_field" placeholder="' . esc_attr__( '/dist/assets/images/logo.svg', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
+        echo '<p class="description">' . __( 'Logo of the theme. Please note the logo path is relative to the theme location. If empty, the logo will use the demo logo.', 'leadeight' ) . '</p>';
 
     }
 
@@ -180,6 +201,7 @@ new SiteSettings;
  * $after_body_scripts = $site_settings_options['after_body_scripts']; // After Body Scripts
  * $footer_scripts = $site_settings_options['footer_scripts']; // Footer Scripts
  * $logo_url = $site_settings_options['logo_url']; // Logo
+ * $logo_url_mobile = $site_settings_options['logo_url_mobile']; // Logo for Mobile
  */
 
 /*

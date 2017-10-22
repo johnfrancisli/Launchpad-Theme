@@ -1,54 +1,15 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+  @include hide-for(nav);
 }
 
 .desktop-menu,
 .site-navigation .top-bar-left {
-  @include show-for(medium);
+  @include show-for(nav);
 }
 
-// Site title
-.site-desktop-title a {
-  font-weight: bold;
-}
 
-// Mobile menu
-.mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
-}
-
-.off-canvas {
-  > ul.menu {
-    height: 100vh;
-    padding: 1rem;
-
-    a {
-      color: $white;
-      font-weight: 600;
-      font-size: rem-calc(15);
-    }
-  }
-
-  .menu .active > a { background-color: #ccc; }
-
-}
-
-.title-bar-title {
-  a {
-    font-size: 1rem;
-    color: #B9B9B9;
-  }
-}
-
-.mobile-menu,
-.mobile-off-canvas-menu {
-
-  .menu .is-active > a {
-    background-color: lighten($dark-nav-color, 5%);
-  }
-}
 
 // Tablet and desktop menu
 
