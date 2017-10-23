@@ -1,9 +1,12 @@
 // Navigation Global
-
+$mobile-nav-burger-color: $dark-gray;
+$mobile-nav-burger-active-color: $dark-gray; // Color when clicked
+$mobile-nav-bg-color: $light-gray;
 // Mobile menu
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
 }
+
 .off-canvas {
   > ul.menu {
     height: 100vh;
@@ -16,31 +19,98 @@
     }
   }
 
-  .menu .active > a { background-color: #ccc; }
+  .menu .active > a {
+    background-color: #ccc;
+  }
 
 }
 
 // Mobile Menu
 .mobile-menu,
 .mobile-off-canvas-menu {
-
   .menu .is-active > a {
-    background-color: lighten($dark-nav-color, 5%);
+    background-color: lighten($nav-color, 5%);
   }
 }
-
 
 #navigation-mobile {
   .title-bar-left {
     // Logo for Mobile
     .logo {
       img {
-        min-width: 200px;
+        max-width: 200px;
         height: auto;
       }
     }
   }
   .title-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // Mobile Burger Icon
+    .mobile-menu-icon {
+      display: inline-block;
+      width: 33px;
+      height: 32px;
+      cursor: pointer;
+      span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: $mobile-nav-burger-color;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
 
+        &:first-child {
+          transform-origin: 0% 0%;
+        }
+        &:nth-last-child(2) {
+          transform-origin: 0% 100%;
+        }
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+
+      }
+      &.is-active {
+        span {
+          opacity: 1;
+
+          background: $mobile-nav-burger-active-color;
+          &:nth-last-child(2) {
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+          }
+          &:nth-last-child(3) {
+            opacity: 1;
+            transform: rotate(45deg) translate(4px, -6px);
+          }
+          &:nth-last-child(1) {
+            opacity: 1;
+            transform: rotate(-45deg) translate(1px, 3px);
+          }
+
+        }
+      }
+    }
+  }
+}
+.mobile-menu {
+  background-color: $mobile-nav-bg-color;
+  ul {
+    li {
+      a {
+
+        &:active, &:focus, &:hover {
+
+        }
+      }
+    }
   }
 }
