@@ -22,11 +22,14 @@
     <?php get_template_part('template-parts/mobile-off-canvas'); ?>
 <?php endif; ?>
 
-<div data-sticky-container>
+<?php if (get_post_meta($post->ID, "lp_header-transparent", true) == "checked") : ?>
+    <?php $header_transparent_class = "transparent"; ?>
+<?php endif ; ?>
+
+<div id="header-container" data-sticky-container class="<?php echo $header_transparent_class; ?>">
     <header class="site-header" role="banner" data-sticky data-options="marginTop:0;" data-sticky-on="small">
         <?php get_template_part('template-parts/navigation-mobile'); ?>
         <?php get_template_part('template-parts/navigation-desktop'); ?>
-
     </header>
 </div>
 <div class="container">

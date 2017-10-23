@@ -62,7 +62,7 @@ class Page_Design_Settings {
         echo '		<td>';
         echo '			<label><input type="radio" name="lp_dark_light" class="lp_dark_light_field" value="lp_dark" ' . checked( $lp_dark_light, 'lp_dark', false ) . '> ' . __( 'Dark', 'launchpad' ) . '</label><br>';
         echo '			<label><input type="radio" name="lp_dark_light" class="lp_dark_light_field" value="lp_light" ' . checked( $lp_dark_light, 'lp_light', false ) . '> ' . __( 'Light', 'launchpad' ) . '</label><br>';
-        echo '			<p class="description">' . __( 'Will the header be a dark theme (dark text and icons) or a light theme (light text and light icons)?', 'launchpad' ) . '</p>';
+        echo '			<p class="description">' . __( 'Will the header be a dark theme (dark text and icons) or a light theme (light text and light icons)? If none selected, theme default (dark) will be used.', 'launchpad' ) . '</p>';
         echo '		</td>';
         echo '	</tr>';
 

@@ -9,14 +9,28 @@
   @include show-for(nav);
 }
 
-
 // Global Colors
 $desktop-nav-item-color: $dark-gray;
 
 // Global Header
-header.site-header {
-  background-color: $nav-color;
+
+#header-container {
+  &.transparent { // Transparent Header
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    header.site-header {
+      background-color: transparent;
+      &.is-stuck {
+        background-color: $nav-color;
+      }
+    }
+  } // .transparent Class
+  header.site-header {
+    background-color: $nav-color;
+  }
 }
+
 
 // Tablet and desktop menu
 
@@ -46,15 +60,27 @@ header.site-header {
     }
   }
 
-  .menu .active > a { background-color: #ccc; }
+  .menu .active > a {
+    background-color: #ccc;
+  }
 
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
+  .menu > li:not(.menu-text) > a {
+    padding: 1rem;
+  }
   //.menu li:not(:last-child) { border-right: 1px solid #4e4e4e; } // Separators if you want them.
 
-  .dropdown.menu .submenu { border: 0; }
-  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
-  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
-  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+  .dropdown.menu .submenu {
+    border: 0;
+  }
+  .dropdown.menu .has-submenu.is-down-arrow a {
+    padding-right: 1rem;
+  }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after {
+    border: 0;
+  }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
+    display: none;
+  }
 }
 
 .site-navigation {
@@ -69,9 +95,9 @@ header.site-header {
 }
 
 .nav-previous {
-  float:left;
+  float: left;
 }
 
 .nav-next {
-  float:right;
+  float: right;
 }
