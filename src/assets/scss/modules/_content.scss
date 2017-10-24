@@ -1,10 +1,10 @@
 .main-wrap {
   @include xy-grid-container;
   @include xy-grid();
-  margin-top: 1rem;
+  //margin-top: 1rem; // This doesn't work if you have transparent headers.
 
   @include breakpoint(medium) {
-    margin-top: 3rem;
+    //margin-top: 3rem;
   }
 
   &.sidebar-left {

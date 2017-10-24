@@ -33,9 +33,8 @@ $desktop-nav-item-color: $dark-gray;
 
 
 // Tablet and desktop menu
-
 #main-navigation {
-  @extend .container;
+  @extend .container-content;
   background-color: transparent; // Default is $nav-color
   ul {
     background-color: transparent; // Default is $nav-color
