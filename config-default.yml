@@ -1,7 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "http://launchpad.test"
+  url: ""
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
@@ -19,16 +19,11 @@ PATHS:
   # Paths to static assets that aren't images, CSS, or JavaScript
   assets:
     - "src/assets/**/*"
-    - "!src/assets/{img,js,scss}/**/*"
-  # Next two lines add location of FontAwesome font assets.
-    - "src/vendor/font-awesome/**/*"
-    - "!src/vendor/font-awesome/{css,less,scss}/**/*" #
+    - "!src/assets/{images,images/**/*,js,js/**/*,scss,scss/**/*}"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
-  # Next line adds FontAwesome SCSS assets
-    - "src/vendor/font-awesome/scss"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
