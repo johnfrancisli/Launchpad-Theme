@@ -51,5 +51,12 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 
+/** Site Settings Admin Page */
+require_once( 'library/site-settings.php' );
+
+/** Page Design Settings Page */
+require_once( 'library/page-settings.php' );
+
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
