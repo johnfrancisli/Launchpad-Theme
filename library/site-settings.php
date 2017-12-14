@@ -211,7 +211,7 @@ new SiteSettings;
  */
 add_action('wp_head', 'render_header_scripts');
 function render_header_scripts() {
-    $site_settings_options = get_option( 'site_settings_option_name' );
+    $site_settings_options = get_option( 'site_settings' );
     echo $site_settings_options['header_scripts'];
 }
 /*
@@ -222,7 +222,7 @@ function render_header_scripts() {
 add_shortcode('phone-number', 'phone_number_render');
 function phone_number_render($atts) {
     // Get Page Settings
-    $site_settings_options = get_option( 'site_settings_option_name' );
+    $site_settings_options = get_option( 'site_settings' );
     $atts = shortcode_atts( array(
         'phone' => $site_settings_options['phone_number'],
         'link'  => true,
@@ -235,11 +235,11 @@ function phone_number_render($atts) {
     $phone_number = $atts['phone'];
     // Add Icon if exists
     if (isset($atts['icon'])) {
-        $phone_number = '<i class="fa '.$atts["icon"].'"></i> '.$phone_number;
+        $phone_number = '<i class="fal '.$atts["icon"].'"></i> '.$phone_number;
     }
     // Adds a link if necessary
     if ($atts['link'] == true) {
-        $phone_number = '<a class="phone-number '.$atts['class'].'" href="tel:'.$site_settings_options['phone_number'].'">'.$phone_number.'</a>';
+        $phone_number = '<a class="phone-number '.$atts['class'].'" href="tel:'.$atts['phone'].'">'.$phone_number.'</a>';
     }
     return $phone_number;
 }
