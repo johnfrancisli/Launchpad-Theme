@@ -4,7 +4,11 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
-@import 'font-awesome';
+@import 'fontawesome';
+@import 'fa-brands.scss';
+@import 'fa-light.scss';
+//@import 'fa-regular.scss';
+//@import 'fa-solid.scss';
 
 @include foundation-global-styles;
 //@include foundation-grid;
