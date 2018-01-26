@@ -22,6 +22,7 @@
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
 
+
     <?php if (get_post_meta($post->ID, "lp_header-transparent", true) == "checked") : ?>
         <?php $header_transparent_class = "transparent"; ?>
     <?php endif ; ?>
