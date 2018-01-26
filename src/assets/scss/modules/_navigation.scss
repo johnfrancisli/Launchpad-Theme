@@ -48,7 +48,6 @@ $desktop-nav-item-color: $dark-gray;
 
   .menu a {
     color: $desktop-nav-item-color;
-  == == == = @include show-for(medium);
   }
 
   // Site title
@@ -107,7 +106,7 @@ $desktop-nav-item-color: $dark-gray;
 
     .menu a {
       color: #e6e6e6;
-    > > > > > > > upstream / master padding-top:0;
+      padding-top:0;
       padding-bottom: 0;
       font-weight: bold;
       font-size: 0.8rem;
