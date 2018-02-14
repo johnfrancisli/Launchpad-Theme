@@ -7,10 +7,12 @@
  * @since FoundationPress 1.0.0
  */
 
-register_nav_menus( array(
-    'top-bar-r'  => esc_html__( 'Primary Menu', 'foundationpress' ),
-    'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
-));
+register_nav_menus(
+	array(
+		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
+		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+	)
+);
 
 
 /**
@@ -24,7 +26,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 			array(
 				'container'      => false,
 				'menu_class'     => 'dropdown menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu data-alignment="left">%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
 				'theme_location' => 'top-bar-r',
 				'depth'          => 3,
 				'fallback_cb'    => false,

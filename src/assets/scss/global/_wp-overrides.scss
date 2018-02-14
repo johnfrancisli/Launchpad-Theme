@@ -28,31 +28,3 @@ p.wp-caption-text{
   margin-left: auto;
   margin-right: auto;
 }
-.valigncenter {
-  display: flex;
-  align-items: center;
-  //justify-content: center;
-}
-.valignbottom {
-  display: flex;
-  align-items: flex-end;
-  //justify-content: center;
-}
-.vhalignbottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-center {
-  @include breakpoint (small down) {
-    text-align: center;
-  }
-}
-
-.column-reverse {
-  @include breakpoint (768px down) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}

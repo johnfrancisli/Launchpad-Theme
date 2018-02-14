@@ -4,12 +4,6 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
-@import 'fontawesome';
-@import 'fa-brands.scss';
-@import 'fa-light.scss';
-//@import 'fa-regular.scss';
-@import 'fa-solid.scss';
-
 
 @include foundation-global-styles;
 //@include foundation-grid;
@@ -65,15 +59,13 @@
 */
 
 // Global
-@import "global/_accessibility";
-@import "global/container";
+@import "global/accessibility";
 @import "global/colors";
 @import "global/wp-admin";
 @import "global/wp-overrides";
 
 // Modules
 @import "modules/navigation";
-@import "modules/navigation-mobile";
 @import "modules/content";
 @import "modules/footer";
 @import "modules/editor-style";

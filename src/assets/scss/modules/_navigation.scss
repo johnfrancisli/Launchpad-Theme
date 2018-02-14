@@ -1,163 +1,105 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(nav);
+  @include hide-for(medium);
 }
 
 .desktop-menu,
 .site-navigation .top-bar-left {
-  @include show-for(nav);
+  @include show-for(medium);
 }
 
-// Global Colors
-$desktop-nav-item-color: $dark-gray;
+// Site title
+.site-desktop-title a {
+  font-weight: bold;
+}
 
-// Global Header
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
 
-#header-container {
-  &.transparent { // Transparent Header
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    header.site-header {
-      background-color: transparent;
-      &.is-stuck {
-        background-color: $nav-color;
-      }
+.off-canvas {
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
     }
-  } // .transparent Class
-  header.site-header {
-    background-color: $nav-color;
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+}
+
+.title-bar-title {
+  a {
+    font-size: 1rem;
+    color: #B9B9B9;
   }
 }
 
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  .menu .is-active > a {
+    background-color: lighten($dark-nav-color, 5%);
+  }
+}
 
 // Tablet and desktop menu
-#main-navigation {
-  @extend .container-content;
-  background-color: transparent; // Default is $nav-color
-  ul {
-    background-color: transparent; // Default is $nav-color
-  }
-  .logo {
-    img {
-      max-width: 200px;
-      height: auto;
-    }
+
+.top-bar {
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
   }
 
   .menu a {
-    color: $desktop-nav-item-color;
-  }
-
-  // Site title
-  .site-desktop-title a {
+    color: #e6e6e6;
+    padding-top: 0;
+    padding-bottom: 0;
     font-weight: bold;
-  }
+    font-size: 0.8rem;
+    line-height: 1;
 
-  // Mobile menu
-  .mobile-menu {
-    display: none; // prevents repaint caused by JS hiding menu onload
-  }
-
-  .off-canvas {
-    > ul.menu {
-      height: 100vh;
-      padding: 1rem;
-
-      a {
-        color: $white;
-        font-weight: 600;
-        font-size: rem-calc(15);
-      }
-    }
-
-    .menu .active > a {
-      background-color: #ccc;
-    }
-
-  }
-
-  .title-bar-title {
-    a {
-      font-size: 1rem;
-      color: #B9B9B9;
+    &:hover:not(.button) {
+      background-color: #42525D;
     }
   }
 
-  .mobile-menu,
-  .mobile-off-canvas-menu {
+  .menu .active > a { background-color: #ccc; }
 
-    .menu .is-active > a {
-      background-color: lighten($dark-nav-color, 5%);
-    }
+  .menu>li:not(.menu-text)>a { padding: 1rem; }
+  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
   }
+}
 
-  // Tablet and desktop menu
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
 
-  .top-bar {
+.nav-previous {
+  float:left;
+}
 
-    .top-bar-title a {
-      font-size: 1rem;
-      color: #B9B9B9;
-      padding-left: 1rem;
-      line-height: 1.8;
-    }
-
-    .menu a {
-      color: #e6e6e6;
-      padding-top:0;
-      padding-bottom: 0;
-      font-weight: bold;
-      font-size: 0.8rem;
-      line-height: 1;
-
-      &:hover:not(.button) {
-        background-color: #42525D;
-      }
-    }
-
-    .menu .active > a {
-      background-color: #ccc;
-    }
-
-    .menu > li:not(.menu-text) > a {
-      padding: 1rem;
-    }
-    .menu li:not(:last-child) {
-      border-right: 1px solid #4e4e4e;
-    }
-
-    .dropdown.menu .submenu {
-      border: 0;
-    }
-    .dropdown.menu .has-submenu.is-down-arrow a {
-      padding-right: 1rem;
-    }
-    .dropdown.menu .has-submenu.is-down-arrow > a::after {
-      border: 0;
-    }
-    .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
-      display: none;
-    }
-  }
-
-  .site-navigation {
-    @include breakpoint(small only) {
-      padding: 0; // prevents container visibility on small screens
-    }
-  }
-
-  // WP post navigation
-  .post-navigation {
-    @include clearfix;
-  }
-
-  .nav-previous {
-    float: left;
-  }
-
-  .nav-next {
-    float: right;
-  }
+.nav-next {
+  float:right;
 }
