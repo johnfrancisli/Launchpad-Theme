@@ -1,0 +1,33 @@
+.container-viewport {
+  max-width: $global-max-width;
+  margin: 0 auto;
+}
+.container-content {
+  max-width: $global-width;
+  margin: 0 auto;
+}
+
+.vc_row {
+  max-width: $global-width;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  // Full Width
+  &.stretch {
+    max-width: $global-max-width !important;
+  }
+  // Reverse the order of row items on mobile devices
+  &.reverse {
+    @include breakpoint(medium down) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  // 5 Columns
+  &.col-5 {
+    .vc_col-sm-2 {
+      @include breakpoint (large) {
+        @include xy-cell($size: 1 of 5, $gutter-output: false, $gutters: 0);
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+#navigation-desktop {
+  background-color: transparent;
+  // Set content to be content length
+  @extend .container-content;
+  .top-bar-left {
+    // Logo
+    .logo {
+      img {
+        max-width: 200px;
+        height: auto;
+      }
+    }
+  }
+  .top-bar-right {
+    .desktop-menu-utility {
+
+    }
+
+  }
+}

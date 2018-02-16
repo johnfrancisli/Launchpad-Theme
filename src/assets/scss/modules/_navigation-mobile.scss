@@ -1,0 +1,113 @@
+// Navigation Global
+$mobile-nav-burger-color: $dark-gray;
+$mobile-nav-burger-active-color: $dark-gray; // Color when clicked
+$mobile-nav-bg-color: $light-gray;
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.off-canvas {
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  .menu .active > a {
+    background-color: #ccc;
+  }
+
+}
+
+// Mobile Header Bar
+#navigation-mobile {
+  .title-bar-left {
+    // Logo for Mobile
+    .logo {
+      img {
+        max-width: 200px;
+        height: auto;
+      }
+    }
+  }
+  .title-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // Mobile Burger Icon with Animation
+    .mobile-menu-icon {
+      display: inline-block;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      position: relative;
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      span {
+        position: absolute;
+        display: block;
+        width: 33px;
+        height: 4px;
+        background-color: $mobile-nav-burger-color;
+        border-radius: 9px;
+        z-index: 1;
+        left: 0;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+        &:nth-child(1) {
+          top: 0px;
+        }
+        &:nth-child(2) {
+          top: 9px;
+        }
+        &:nth-child(3) {
+          top: 9px;
+        }
+        &:nth-child(4) {
+          top: 18px;
+        }
+      }
+      &.is-active {
+        span {
+          &:nth-child(1) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+          }
+          &:nth-child(2) {
+            transform: rotate(45deg);
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+          }
+          &:nth-child(4) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Drop Down Menu
+#mobile-menu {
+  background-color: $mobile-nav-bg-color;
+  ul {
+    li {
+      a {
+        &:active, &:focus, &:hover {
+
+        }
+      }
+    }
+  }
+}
