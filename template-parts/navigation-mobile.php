@@ -7,7 +7,7 @@
  */
 $site_settings_options = get_option('site_settings');
 $logo_url_mobile = get_stylesheet_directory_uri() . "/" . $site_settings_options['logo_url_mobile'];
-if (!isset($site_settings_options['logo_url_mobile'])) :
+if (strlen($site_settings_options['logo_url_mobile']) == 0 ) :
     $logo_url_mobile = get_stylesheet_directory_uri() . "/dist/assets/images/demo/logo-dark-mobile.svg";
 endif;
 ?>

@@ -48,7 +48,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r_utility' ) ) {
             array(
                 'container'      => false,
                 'menu_class'     => 'dropdown menu',
-                'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu-utility" data-dropdown-menu>%3$s</ul>',
+                'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu-utility" data-dropdown-menu data-alignment="left">%3$s</ul>',
                 'theme_location' => 'top-bar-r-utility',
                 'depth'          => 3,
                 'fallback_cb'    => false,

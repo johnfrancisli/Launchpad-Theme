@@ -2,6 +2,7 @@
 $mobile-nav-burger-color: $dark-gray;
 $mobile-nav-burger-active-color: $dark-gray; // Color when clicked
 $mobile-nav-bg-color: $light-gray;
+$mobile-nav-color: $primary-color;
 // Mobile menu
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
@@ -101,11 +102,20 @@ $mobile-nav-bg-color: $light-gray;
 // Drop Down Menu
 #mobile-menu {
   background-color: $mobile-nav-bg-color;
-  ul {
-    li {
-      a {
-        &:active, &:focus, &:hover {
-
+  .top-bar-right {
+    ul {
+      // Menu Item
+      li {
+        a {
+          color: $mobile-nav-color;
+          &:hover,
+          &:focus {
+            color: darken($mobile-nav-color, 20%);
+          }
+        }
+        // If the page is the current menu item, this will show:
+        &.is-active a {
+          color: darken($mobile-nav-color, 10%);
         }
       }
     }

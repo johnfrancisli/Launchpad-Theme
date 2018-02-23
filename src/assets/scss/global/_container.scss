@@ -7,6 +7,16 @@
   margin: 0 auto;
 }
 
+.vc_section {
+  max-width: $global-max-width;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-bottom: 35px;
+  .vc_row {
+    width: 100% !important;
+  }
+}
+
 .vc_row {
   max-width: $global-width;
   margin-right: auto !important;
@@ -14,6 +24,13 @@
   // Full Width
   &.stretch {
     max-width: $global-max-width !important;
+  }
+  &[data-vc-full-width="true"] {
+    max-width: $global-max-width !important;
+    left: auto !important;
+  }
+  &[data-vc-stretch-content="true"] {
+
   }
   // Reverse the order of row items on mobile devices
   &.reverse {

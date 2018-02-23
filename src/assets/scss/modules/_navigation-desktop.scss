@@ -1,3 +1,6 @@
+$desktop-nav-color: $primary-color;
+$mobile-nav-dropdown-bg-color: $nav-color;
+
 #navigation-desktop {
   background-color: transparent;
   // Set content to be content length
@@ -12,9 +15,47 @@
     }
   }
   .top-bar-right {
-    .desktop-menu-utility {
-
+    // Utility Navigation
+    ul.desktop-menu-utility {
+      @extend .align-right;
+      // Menu item
+      li {
+        a {
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          color: $desktop-nav-color;
+          &:hover,
+          &:focus {
+            color: darken($desktop-nav-color,20%);
+          }
+        }
+        // If the page is the current menu item, this will show:
+        &.is-active a {
+          color: $desktop-nav-color;
+        }
+      }
     }
-
+    // Main Navigation
+    ul.desktop-menu {
+      // Menu Item
+      li {
+        a {
+          color: $desktop-nav-color;
+          &:hover,
+          &:focus {
+            color: darken($desktop-nav-color,20%);
+          }
+        }
+        // If the page is the current menu item, this will show:
+        &.is-active a {
+          color: darken($desktop-nav-color,10%);
+        }
+        // Dropdown Submenu
+        .is-dropdown-submenu {
+          background-color: $mobile-nav-dropdown-bg-color;
+          border: 0;
+        }
+      }
+    }
   }
 }

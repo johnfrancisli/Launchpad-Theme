@@ -1,0 +1,16 @@
+#notfound {
+  .main-container {
+    .main-grid {
+      .main-content {
+        @include xy-grid-container();
+        article {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+          header {
+
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@
 }
 
 .desktop-menu,
+.top-bar-utility,
 .site-navigation .top-bar-left {
   @include show-for(nav);
 }
@@ -13,10 +14,25 @@
 #header-container {
   // The container of the page that expands to a certain px (2000px)
   @extend .container-viewport;
+  z-index: 10;
   header.site-header {
     background-color: $nav-color;
   }
+
+  // Transparent Header?
+  &.transparent { // Transparent Header
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    header.site-header {
+      background-color: transparent;
+      &.is-stuck {
+        background-color: $nav-color;
+      }
+    }
+  }
 }
+
 
 // WP post navigation
 .post-navigation {
