@@ -9,11 +9,13 @@
 
 .vc_section {
   max-width: $global-max-width;
+  width: 100%;
   margin-right: auto !important;
   margin-left: auto !important;
   padding-bottom: 35px;
   .vc_row {
     width: 100% !important;
+    flex-direction: column;
   }
 }
 

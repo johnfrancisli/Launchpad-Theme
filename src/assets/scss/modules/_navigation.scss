@@ -14,6 +14,7 @@
 #header-container {
   // The container of the page that expands to a certain px (2000px)
   @extend .container-viewport;
+  margin-top: 0;
   z-index: 10;
   header.site-header {
     background-color: $nav-color;
@@ -33,15 +34,30 @@
   }
 }
 
-
 // WP post navigation
 .post-navigation {
   @include clearfix;
 }
+
 .nav-previous {
-  float:left;
+  float: left;
 }
 
 .nav-next {
-  float:right;
+  float: right;
+}
+
+// Admin Bar
+
+.admin-bar {
+  #header-container {
+    header.site-header {
+      &.is-stuck {
+        margin-top: 32px !important;
+        @media screen and (max-width: 783px) {
+          margin-top: 46px !important;
+        }
+      }
+    }
+  }
 }
