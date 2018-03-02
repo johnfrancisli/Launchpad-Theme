@@ -214,6 +214,16 @@ function render_header_scripts() {
     $site_settings_options = get_option( 'site_settings' );
     echo $site_settings_options['header_scripts'];
 }
+add_action('wp_after_body', 'render_after_body_scripts');
+function render_after_body_scripts() {
+    $site_settings_options = get_option( 'site_settings' );
+    echo $site_settings_options['after_body_scripts'];
+}
+add_action('wp_footer', 'render_footer_scripts');
+function render_footer_scripts() {
+    $site_settings_options = get_option( 'site_settings' );
+    echo $site_settings_options['footer_scripts'];
+}
 /*
  *
  * Phone Number Shortcode
@@ -272,3 +282,49 @@ add_filter('widget_text','do_shortcode');
 //add_image_size('hero-medium', '1024', '650', array('left', 'top'));
 //add_image_size('hero-large', '1200', '650', array('left', 'top'));
 //add_image_size('hero-xlarge', '1600', '650', array('left', 'top'));
+
+
+
+
+/**
+ * Filters all menu item URLs for a #placeholder#.
+ *
+ * @param WP_Post[] $menu_items All of the nave menu items, sorted for display.
+ *
+ * @return WP_Post[] The menu items with any placeholders properly filled in.
+ */
+function lp_dynamic_menu( $menu_items ) {
+
+    // A list of placeholders to replace.
+    // You can add more placeholders to the list as needed.
+    $placeholders = array(
+        '#phone#' => array(
+            'shortcode' => 'phone-number',
+            'atts' => array(
+                'icon'  => 'fa-phone',
+                'class' => 'animate',
+            ), // Shortcode attributes.
+        ),
+    );
+
+    foreach ( $menu_items as &$menu_item ) {
+
+        //debug($menu_item);
+        if ( isset( $placeholders[ $menu_item->url ] ) ) { // Check if the menu item has a URL set as the placeholder
+            global $shortcode_tags; // Use global shortcode directory
+            $placeholder = $placeholders[ $menu_item->url ];
+            if ( isset( $shortcode_tags[ $placeholder['shortcode'] ] ) ) { // Checks if the menu placeholder actually has a shortcode available
+                // Get Page Settings
+                $site_settings_options = get_option( 'site_settings' );
+                // Phone Number
+                $phone_number = $site_settings_options['phone_number'];
+                array_push($menu_item->classes, 'phone-number');
+                $menu_item->title = '<i class="fal fa-phone"></i> '.$phone_number;
+                $menu_item->url = 'tel:'.filter_var($phone_number, FILTER_SANITIZE_NUMBER_INT);
+            }
+        }
+    }
+
+    return $menu_items;
+}
+add_filter( 'wp_nav_menu_objects', 'lp_dynamic_menu' );

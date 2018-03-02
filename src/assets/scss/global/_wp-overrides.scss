@@ -28,20 +28,20 @@ p.wp-caption-text{
   margin-left: auto;
   margin-right: auto;
 }
+// Since Launchpad (Maguro)
 .valigncenter {
   display: flex;
   align-items: center;
-  //justify-content: center;
+  &.hcenter {
+    justify-content: center;
+  }
 }
 .valignbottom {
   display: flex;
   align-items: flex-end;
-  //justify-content: center;
-}
-.vhalignbottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &.hcenter {
+    justify-content: center;
+  }
 }
 
 .mobile-center {
@@ -49,10 +49,15 @@ p.wp-caption-text{
     text-align: center;
   }
 }
-
+// For Visual Composer to Reverse columns based on a specific breakpoint
 .column-reverse {
   @include breakpoint (768px down) {
     display: flex;
     flex-direction: column-reverse;
   }
+}
+
+// Min Height
+.minheight {
+  min-height: 600px;
 }

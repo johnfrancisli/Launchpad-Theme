@@ -1,0 +1,38 @@
+// Gravity Forms
+.gform_wrapper {
+  // This is the wrapper of everything including the <form> tag
+  form {
+    margin-top: 2rem;
+    .gform_body {
+      ul.gform_fields {
+        margin-left: 0;
+        list-style: none;
+        li.gfield {
+          position: relative;
+
+          // Name Fields
+          .ginput_container_name {
+            span {
+              position: relative;
+              display: block;
+            }
+          }
+          // End of Name Fields
+
+          label {
+            position: absolute;
+            text-transform: uppercase;
+            color: $dark-gray;
+            padding: 0.5rem;
+            line-height: 1;
+          }
+
+
+        }
+      }
+    }
+    .gform_footer {
+
+    }
+  }
+}

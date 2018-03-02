@@ -7,10 +7,13 @@
  * @since FoundationPress 1.0.0
  */
 
-register_nav_menus( array(
-    'top-bar-r'  => esc_html__( 'Primary Menu', 'foundationpress' ),
-    'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
-));
+register_nav_menus(
+	array(
+		'top-bar-r-utility'  => esc_html__( 'Utility Top Navigation', 'foundationpress' ),
+		'top-bar-r'  => esc_html__( 'Main Navigation', 'foundationpress' ),
+		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+	)
+);
 
 
 /**
@@ -24,7 +27,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 			array(
 				'container'      => false,
 				'menu_class'     => 'dropdown menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu data-alignment="left">%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
 				'theme_location' => 'top-bar-r',
 				'depth'          => 3,
 				'fallback_cb'    => false,
@@ -34,6 +37,26 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	}
 }
 
+/**
+ * Desktop utility navigation - right top bar
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'foundationpress_top_bar_r_utility' ) ) {
+    function foundationpress_top_bar_r_utility() {
+        wp_nav_menu(
+            array(
+                'container'      => false,
+                'menu_class'     => 'dropdown menu',
+                'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu-utility" data-dropdown-menu data-alignment="left">%3$s</ul>',
+                'theme_location' => 'top-bar-r-utility',
+                'depth'          => 3,
+                'fallback_cb'    => false,
+                'walker'         => new Foundationpress_Top_Bar_Walker(),
+            )
+        );
+    }
+}
 
 /**
  * Mobile navigation - topbar (default) or offcanvas

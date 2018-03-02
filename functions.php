@@ -15,6 +15,9 @@
  */
 
 /** Various clean up functions */
+require_once( 'library/function-debug.php' );
+
+/** Various clean up functions */
 require_once( 'library/cleanup.php' );
 
 /** Required for Foundation to work properly */
@@ -51,11 +54,9 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 
-/** Site Settings Admin Page */
+/** Site Settings */
 require_once( 'library/site-settings.php' );
-
-/** Page Design Settings Page */
-require_once( 'library/page-settings.php' );
+require_once( 'library/site-settings-design.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
