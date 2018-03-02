@@ -15,25 +15,63 @@
   padding-bottom: 35px;
   .vc_row {
     width: 100% !important;
-    flex-direction: column;
   }
 }
 
 .vc_row {
   max-width: $global-width;
+  width: 100%;
   margin-right: auto !important;
   margin-left: auto !important;
-  // Full Width
-  &.stretch {
-    max-width: $global-max-width !important;
-  }
+
   &[data-vc-full-width="true"] {
     max-width: $global-max-width !important;
     left: auto !important;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    // If it's a row only and has 12 column, the maximum width is set
+    .vc_col-sm-12 {
+      max-width: $global-width;
+    }
+    .vc_col-sm-6 {
+      max-width: $global-width/2;
+    }
+    .vc_col-sm-4 {
+      max-width: $global-width/3;
+    }
+    .vc_col-sm-3 {
+      max-width: $global-width/4;
+    }
+    .vc_col-sm-2 {
+      max-width: $global-width/6;
+    }
+    .vc_col-sm-1 {
+      max-width: $global-width/12;
+    }
   }
   &[data-vc-stretch-content="true"] {
-
+    // If the section is stretch the content, the items will be the max width of the full section.
+    .vc_col-sm-12 {
+      max-width: $global-max-width;
+    }
+    .vc_col-sm-6 {
+      max-width: $global-max-width/2;
+    }
+    .vc_col-sm-4 {
+      max-width: $global-max-width/3;
+    }
+    .vc_col-sm-3 {
+      max-width: $global-max-width/4;
+    }
+    .vc_col-sm-2 {
+      max-width: $global-max-width/6;
+    }
+    .vc_col-sm-1 {
+      max-width: $global-max-width/12;
+    }
   }
+
   // Reverse the order of row items on mobile devices
   &.reverse {
     @include breakpoint(medium down) {
