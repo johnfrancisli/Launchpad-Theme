@@ -29,7 +29,6 @@
   .main-content-full-width {
     @include xy-cell($size:12,$gutters:0);
   }
-
   // Default template
   .main-content {
     @include breakpoint(small) {
