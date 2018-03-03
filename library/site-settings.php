@@ -243,7 +243,9 @@ new SiteSettings;
  * $after_body_scripts = $site_settings_options['after_body_scripts']; // After Body Scripts
  * $footer_scripts = $site_settings_options['footer_scripts']; // Footer Scripts
  * $logo_url = $site_settings_options['logo_url']; // Logo
+ * $logo_url = $site_settings_options['logo_url_light']; // Logo
  * $logo_url_mobile = $site_settings_options['logo_url_mobile']; // Logo for Mobile
+ * $logo_url_mobile = $site_settings_options['logo_url_mobile_light']; // Logo for Mobile
  */
 
 /*
