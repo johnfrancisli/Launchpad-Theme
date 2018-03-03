@@ -76,9 +76,23 @@ class SiteSettings {
             'site_settings_section'
         );
         add_settings_field(
+            'logo_url_light',
+            __( 'Logo URL (Light)', 'leadeight' ),
+            array( $this, 'render_logo_url_light_field' ),
+            'site_settings',
+            'site_settings_section'
+        );
+        add_settings_field(
             'logo_url_mobile',
             __( 'Logo URL for Mobile', 'leadeight' ),
             array( $this, 'render_logo_url_mobile_field' ),
+            'site_settings',
+            'site_settings_section'
+        );
+        add_settings_field(
+            'logo_url_mobile_light',
+            __( 'Logo URL for Mobile (Light)', 'leadeight' ),
+            array( $this, 'render_logo_url_mobile_light_field' ),
             'site_settings',
             'site_settings_section'
         );
@@ -175,6 +189,20 @@ class SiteSettings {
 
     }
 
+    function render_logo_url_light_field() {
+
+        // Retrieve data from the database.
+        $options = get_option( 'site_settings' );
+
+        // Set default value.
+        $value = isset( $options['logo_url_light'] ) ? $options['logo_url_light'] : '';
+
+        // Field output.
+        echo '<input type="text" name="site_settings[logo_url_light]" class="regular-text logo_url_light_field" placeholder="' . esc_attr__( '/dist/assets/images/logo.svg', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
+        echo '<p class="description">' . __( 'Logo of the theme. Please note the logo path is relative to the theme location. If empty, the logo will use the demo logo.', 'leadeight' ) . '</p>';
+
+    }
+
     function render_logo_url_mobile_field() {
 
         // Retrieve data from the database.
@@ -185,6 +213,20 @@ class SiteSettings {
 
         // Field output.
         echo '<input type="text" name="site_settings[logo_url_mobile]" class="regular-text logo_url_mobile_field" placeholder="' . esc_attr__( '/dist/assets/images/logo.svg', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
+        echo '<p class="description">' . __( 'Logo of the theme. Please note the logo path is relative to the theme location. If empty, the logo will use the demo logo.', 'leadeight' ) . '</p>';
+
+    }
+
+    function render_logo_url_mobile_light_field() {
+
+        // Retrieve data from the database.
+        $options = get_option( 'site_settings' );
+
+        // Set default value.
+        $value = isset( $options['logo_url_mobile_light'] ) ? $options['logo_url_mobile_light'] : '';
+
+        // Field output.
+        echo '<input type="text" name="site_settings[logo_url_mobile_light]" class="regular-text logo_url_mobile_light_field" placeholder="' . esc_attr__( '/dist/assets/images/logo.svg', 'leadeight' ) . '" value="' . esc_attr( $value ) . '">';
         echo '<p class="description">' . __( 'Logo of the theme. Please note the logo path is relative to the theme location. If empty, the logo will use the demo logo.', 'leadeight' ) . '</p>';
 
     }
