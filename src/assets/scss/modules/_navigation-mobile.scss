@@ -102,21 +102,21 @@ $mobile-nav-color: $primary-color;
 // Drop Down Menu
 #mobile-menu {
   background-color: $mobile-nav-bg-color;
-  .top-bar-right {
-    ul {
-      // Menu Item
-      li {
-        a {
-          color: $mobile-nav-color;
-          &:hover,
-          &:focus {
-            color: darken($mobile-nav-color, 20%);
-          }
+  ul {
+    // Menu Item
+    li {
+      a {
+        color: $mobile-nav-color;
+        font-weight: bold;
+        text-transform: uppercase;
+        &:hover,
+        &:focus {
+          color: darken($mobile-nav-color, 20%);
         }
-        // If the page is the current menu item, this will show:
-        &.is-active a {
-          color: darken($mobile-nav-color, 10%);
-        }
+      }
+      // If the page is the current menu item, this will show:
+      &.is-active a {
+        color: darken($mobile-nav-color, 10%);
       }
     }
   }

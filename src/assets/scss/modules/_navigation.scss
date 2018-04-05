@@ -17,7 +17,9 @@
   margin-top: 0;
   z-index: 10;
   header.site-header {
-    background-color: $nav-color;
+    .navigation-desktop-container {
+      background-color: $nav-color;
+    }
   }
 
   // Transparent Header?
@@ -26,9 +28,13 @@
     width: 100%;
     z-index: 10;
     header.site-header {
-      background-color: transparent;
+      .navigation-desktop-container {
+        background-color: transparent;
+      }
       &.is-stuck {
-        background-color: $nav-color;
+        .navigation-desktop-container {
+          background-color: $nav-color;
+        }
       }
     }
   }

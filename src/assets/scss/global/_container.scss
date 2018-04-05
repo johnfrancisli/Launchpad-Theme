@@ -29,6 +29,9 @@
   &.vc_row-o-equal-height.vc_row-flex{
     flex-direction: row;
   }
+  &.vc_row-o-content-middle {
+    flex-direction: row;
+  }
 
   &[data-vc-full-width="true"] {
     max-width: $global-max-width !important;

@@ -11,7 +11,7 @@ if (strlen($site_settings_options['logo_url']) == 0) :
     $logo_url = get_stylesheet_directory_uri() . "/dist/assets/images/demo/logo-dark.svg";
 endif;
 ?>
-
+<div class="navigation-desktop-container">
 <nav id="navigation-desktop" class="site-navigation top-bar" role="navigation">
         <div class="top-bar-left">
             <a class="logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
@@ -29,3 +29,4 @@ endif;
             <?php foundationpress_top_bar_r(); ?>
         </div>
 </nav>
+</div>
