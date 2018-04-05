@@ -15,7 +15,8 @@
   padding-bottom: 35px;
   .vc_row {
     width: 100% !important;
-    &.vc_row-o-equal-height.vc_row-flex{
+    &.vc_row-o-equal-height.vc_row-flex,
+    &.vc_row-o-content-middle {
       flex-direction: row;
     }
   }
@@ -26,9 +27,7 @@
   width: 100%;
   margin-right: auto !important;
   margin-left: auto !important;
-  &.vc_row-o-equal-height.vc_row-flex{
-    flex-direction: row;
-  }
+  &.vc_row-o-equal-height.vc_row-flex,
   &.vc_row-o-content-middle {
     flex-direction: row;
   }
