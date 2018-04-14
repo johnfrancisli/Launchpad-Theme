@@ -15,9 +15,6 @@
  */
 
 /** Various clean up functions */
-require_once( 'library/function-debug.php' );
-
-/** Various clean up functions */
 require_once( 'library/cleanup.php' );
 
 /** Required for Foundation to work properly */

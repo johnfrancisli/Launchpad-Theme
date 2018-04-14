@@ -7,13 +7,13 @@
  */
 
 get_header(); ?>
-<div id="notfound">
+
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
 			<article>
 				<header>
-					<h1 class="entry-title"><?php _e( '404: Page Not Found', 'foundationpress' ); ?></h1>
+					<h1 class="entry-title"><?php _e( 'File Not Found', 'foundationpress' ); ?></h1>
 				</header>
 				<div class="entry-content">
 					<div class="error">
@@ -40,7 +40,7 @@ get_header(); ?>
 				</div>
 			</article>
 		</main>
+		<?php get_sidebar(); ?>
 	</div>
-</div>
 </div>
 <?php get_footer();
