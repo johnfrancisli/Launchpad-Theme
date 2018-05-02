@@ -26,7 +26,7 @@
   &.transparent { // Transparent Header
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
     header.site-header {
       .navigation-desktop-container {
         background-color: transparent;
@@ -51,19 +51,4 @@
 
 .nav-next {
   float: right;
-}
-
-// Admin Bar
-
-.admin-bar {
-  #header-container {
-    header.site-header {
-      &.is-stuck {
-        margin-top: 32px !important;
-        @media screen and (max-width: 783px) {
-          margin-top: 46px !important;
-        }
-      }
-    }
-  }
 }

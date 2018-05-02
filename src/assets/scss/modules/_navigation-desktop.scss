@@ -1,6 +1,8 @@
 $desktop-nav-color: $primary-color;
 $mobile-nav-dropdown-bg-color: $nav-color;
 
+// Top Container
+
 #navigation-desktop {
   background-color: transparent;
   // Set content to be content length
@@ -18,8 +20,8 @@ $mobile-nav-dropdown-bg-color: $nav-color;
     // Utility Navigation
     ul.desktop-menu-utility {
       @extend .align-right;
-      // Menu item
-      li {
+      // Parent Menu item
+      >li {
         a {
           font-size: 0.9rem;
           text-transform: uppercase;
@@ -37,9 +39,9 @@ $mobile-nav-dropdown-bg-color: $nav-color;
     }
     // Main Navigation
     ul.desktop-menu {
-      // Menu Item
-      li {
-        a {
+      // Parent Menu Item
+      >li {
+        >a {
           color: $desktop-nav-color;
           &:hover,
           &:focus {
@@ -47,13 +49,34 @@ $mobile-nav-dropdown-bg-color: $nav-color;
           }
         }
         // If the page is the current menu item, this will show:
-        &.is-active a {
+        &.is-active >a {
           color: darken($desktop-nav-color,10%);
         }
         // Dropdown Submenu
         .is-dropdown-submenu {
           background-color: $mobile-nav-dropdown-bg-color;
           border: 0;
+          .is-dropdown-submenu-item {
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Admin bar
+// Admin Bar Fix
+
+.admin-bar {
+  #header-container {
+    header.site-header {
+      &.is-stuck {
+        margin-top: 32px !important;
+        @media screen and (max-width: 783px) {
+          margin-top: 46px !important;
         }
       }
     }

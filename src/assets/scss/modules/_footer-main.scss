@@ -1,5 +1,6 @@
+
 .footer-container {
-  background-color: $nav-color;
+  background-color: transparent;
   .footer-grid {
     @include xy-grid-container;
     @include xy-grid;
