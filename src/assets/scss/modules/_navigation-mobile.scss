@@ -1,8 +1,14 @@
 // Navigation Global
-$mobile-nav-burger-color: $dark-gray;
-$mobile-nav-burger-active-color: $dark-gray; // Color when clicked
+$mobile-nav-burger-color: $white;
+$mobile-nav-burger-active-color: $white; // Color when clicked
+$mobile-nav-bar-bg-color: darken($primary-color, 20%);
+$mobile-nav-bar-sticky-bg-color: darken($primary-color, 20%);
 $mobile-nav-bg-color: $light-gray;
 $mobile-nav-color: $primary-color;
+$mobile-nav-hover-color: darken($mobile-nav-color, 20%);
+$mobile-nav-hover-bg: transparent;
+$mobile-nav-active-color: $white;
+$mobile-nav-active-bg: $dark-gray;
 // Mobile menu
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
@@ -28,6 +34,7 @@ $mobile-nav-color: $primary-color;
 
 // Mobile Header Bar
 #navigation-mobile {
+  background-color: $mobile-nav-bar-bg-color;
   .title-bar-left {
     // Logo for Mobile
     .logo {
@@ -99,24 +106,71 @@ $mobile-nav-color: $primary-color;
   }
 }
 
+// Sticky Mobile Header
+.sticky.is-stuck {
+  #navigation-mobile {
+    background-color: $mobile-nav-bar-sticky-bg-color;
+  }
+}
+
 // Drop Down Menu
 #mobile-menu {
   background-color: $mobile-nav-bg-color;
   ul {
     // Menu Item
-    li {
-      a {
+    >li {
+      >a {
         color: $mobile-nav-color;
         font-weight: bold;
         text-transform: uppercase;
+        border-bottom: 1px solid $medium-gray;
         &:hover,
         &:focus {
-          color: darken($mobile-nav-color, 20%);
+          color: $mobile-nav-hover-color;
+          background-color: $mobile-nav-hover-bg;
+        }
+      }
+      &.has-submenu-toggle {
+        a {
+          margin-right: 0;
+        }
+      }
+      // Submenu
+      ul.submenu {
+        margin-left: 0;
+        li {
+          a {
+            padding-left: 2rem;
+          }
+        }
+      }
+      // Submenu Toggle Icon
+      .submenu-toggle {
+
+        background-color: darken($mobile-nav-bg-color, 5%);
+        height: 38px;
+        width: 38px;
+        &:after {
+          transition: $animate-1;
+          color: $mobile-nav-color;
+          border: 0;
+          font-family: "Font Awesome 5 Pro";
+          content: '\f054';
+          width: auto;
+          height: auto;
+          top: auto;
+          bottom: auto;
+        }
+        &[aria-expanded=true] {
+          &:after {
+            transform: rotate(90deg);
+          }
         }
       }
       // If the page is the current menu item, this will show:
-      &.is-active a {
-        color: darken($mobile-nav-color, 10%);
+      &.is-active >a {
+        color: $mobile-nav-active-color;
+        background-color: $mobile-nav-active-bg;
       }
     }
   }

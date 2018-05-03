@@ -1,6 +1,7 @@
-$desktop-nav-color: $primary-color;
-$mobile-nav-dropdown-bg-color: $nav-color;
-
+$desktop-nav-color: $white;
+$desktop-nav-sticky-color: $primary-color;
+$desktop-nav-utility-sticky-color: $primary-color;
+$desktop-nav-dropdown-menu-bg: $nav-color;
 // Top Container
 
 #navigation-desktop {
@@ -22,7 +23,7 @@ $mobile-nav-dropdown-bg-color: $nav-color;
       @extend .align-right;
       // Parent Menu item
       >li {
-        a {
+        >a {
           font-size: 0.9rem;
           text-transform: uppercase;
           color: $desktop-nav-color;
@@ -41,20 +42,33 @@ $mobile-nav-dropdown-bg-color: $nav-color;
     ul.desktop-menu {
       // Parent Menu Item
       >li {
+        // DEFAULT
         >a {
           color: $desktop-nav-color;
+          text-transform: uppercase;
+          font-weight: bold;
           &:hover,
           &:focus {
             color: darken($desktop-nav-color,20%);
           }
         }
-        // If the page is the current menu item, this will show:
+        // ACTIVE - If the page is the current menu item, this will show:
         &.is-active >a {
           color: darken($desktop-nav-color,10%);
         }
+        // DROPDOWN MENU
+        &.is-dropdown-submenu-parent {
+          >a {
+            padding-right: 1rem; // This removes the padding for the triangle dropdown icon
+            &:after {
+              display: none; // This removes the triangle icon
+            }
+          }
+        }
+
         // Dropdown Submenu
         .is-dropdown-submenu {
-          background-color: $mobile-nav-dropdown-bg-color;
+          background-color: $desktop-nav-dropdown-menu-bg;
           border: 0;
           .is-dropdown-submenu-item {
             a {
@@ -67,9 +81,42 @@ $mobile-nav-dropdown-bg-color: $nav-color;
   }
 }
 
+// Sticky Header
+header.sticky {
+  // Scrolled Down
+  &.is-stuck {
+    #navigation-desktop {
+      ul.desktop-menu-utility {
+        // Parent Menu item
+        >li {
+          >a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: $desktop-nav-utility-sticky-color;
+            &:hover,
+            &:focus {
+              color: darken($desktop-nav-utility-sticky-color,20%);
+            }
+          }
+          // If the page is the current menu item, this will show:
+          &.is-active a {
+            color: $desktop-nav-utility-sticky-color;
+          }
+        }
+      }
+      ul.desktop-menu {
+        >li {
+          >a {
+            color: $desktop-nav-sticky-color;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Admin bar
 // Admin Bar Fix
-
 .admin-bar {
   #header-container {
     header.site-header {
