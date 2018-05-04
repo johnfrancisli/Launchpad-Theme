@@ -372,3 +372,23 @@ function lp_dynamic_menu( $menu_items ) {
     return $menu_items;
 }
 add_filter( 'wp_nav_menu_objects', 'lp_dynamic_menu' );
+
+
+/**
+ * Add the wp-editor back into WordPress after it was removed in 4.2.2.
+ *
+ * @see https://wordpress.org/support/topic/you-are-currently-editing-the-page-that-shows-your-latest-posts?replies=3#post-7130021
+ * @param $post
+ * @return void
+ */
+function fix_no_editor_on_posts_page($post) {
+
+    if( $post->ID != get_option( 'page_for_posts' ) ) { return; }
+
+    remove_action( 'edit_form_after_title', '_wp_posts_page_notice' );
+    add_post_type_support( 'page', 'editor' );
+
+}
+
+// This is applied in a namespaced file - so amend this if you're not namespacing
+add_action( 'edit_form_after_title', __NAMESPACE__ . '\\fix_no_editor_on_posts_page', 0 );

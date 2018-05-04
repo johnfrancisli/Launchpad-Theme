@@ -1,111 +1,18 @@
 // Page header
 .featured-hero {
-  @extend .valigncenter;
-  @extend .container-viewport;
-  .marketing {
-    @extend .container-content;
+  min-height: rem-calc(600);
 
-    @include xy-grid;
-  }
-
+  // Demo Content
   @include breakpoint(small) {
-    background: url('../images/demo/hero.jpg') bottom center;
-    background-size: cover;
-    background-position: bottom;
-    padding: 0;
-    margin: 0;
-    height: auto;
-    position: relative;
-    text-align: left;
+    background-image: url('../images/demo/hero.jpg');
+    min-height: rem-calc(400);
   }
-
   @include breakpoint(medium) {
-    background: url('../images/demo/hero.jpg') center;
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(685);
-    margin: 0;
-  }
-
-  .watch {
-    @include breakpoint(small) {
-      @include xy-cell(7);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(12);
-    }
-
-    a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
-      margin-right: rem-calc(20);
-    }
-
-    a:hover {
-      color: #fff;
-    }
-
-    #stargazers {
-      :before {
-        content: "\f09b";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
-
-    #twitter {
-      :before {
-        content: "\f099";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
+    background-image: url('../images/demo/hero.jpg');
+    min-height: rem-calc(500);
 
   }
 
-  .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
-    }
-  }
-
-  h1 {
-    color: #fff;
-    font-weight: 300;
-
-    @include breakpoint(small) {
-      font-size: 2.2rem;
-    }
-
-    @include breakpoint(medium) {
-      font-size: 3rem;
-    }
-  }
-
-  h4 {
-    color: #fefefe;
-    font-weight: 300;
-    font-size: 1.3125rem;
-  }
-
-  .download {
-    margin-top: rem-calc(20);
-  }
 }
 
 // Intro

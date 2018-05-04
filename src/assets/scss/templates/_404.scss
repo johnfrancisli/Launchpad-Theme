@@ -1,15 +1,24 @@
 #notfound {
-  .main-container {
-    .main-grid {
-      .main-content {
-        @include xy-grid-container();
-        article {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
-          header {
-
+  @extend .container-viewport;
+  .main-grid {
+    .main-content {
+      @include xy-grid-container();
+      article {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        header {
+          h1 {
+            text-align: center;
           }
         }
+        .entry-content {
+          max-width: rem-calc(600);
+          margin: 0 auto;
+          .error {
+            text-align: center;
+          }
+        }
+
       }
     }
   }

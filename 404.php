@@ -7,8 +7,7 @@
  */
 
 get_header(); ?>
-
-<div class="main-container">
+<div id="notfound" class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
 			<article>

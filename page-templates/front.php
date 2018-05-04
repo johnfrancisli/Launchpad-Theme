@@ -4,6 +4,16 @@ Template Name: Front
 */
 get_header(); ?>
     <header class="featured-hero" role="banner" data-interchange="[<?php the_post_thumbnail_url( 'featured-small' ); ?>, small], [<?php the_post_thumbnail_url( 'featured-medium' ); ?>, medium], [<?php the_post_thumbnail_url( 'featured-large' ); ?>, large], [<?php the_post_thumbnail_url( 'featured-xlarge' ); ?>, xlarge]">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="content">
+                <div class="wrapper">
+                    <h1>Boilerplate Theme for WordPress</h1>
+                    <div class="description">Built on FoundationPress & Foundation, Launchpad is built for quick launches while having a strong foundation of best web-standards and marketing tools ready to go.</div>
+                    <div class="cta"><a class="button" href="#">Learn More</a></div>
+                </div>
+            </div>
+        </div>
     </header>
 
 <?php do_action( 'foundationpress_before_content' ); ?>

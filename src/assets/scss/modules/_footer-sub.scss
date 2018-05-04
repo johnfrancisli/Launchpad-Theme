@@ -1,25 +1,29 @@
-$sub_footer_color: $black;
+$sub-footer-bg-color: #2c353e;
+$sub-footer-color: $white;
 .sub-footer-container {
-  background-color: darken($nav-color,5%);
+  background-color: $sub-footer-bg-color;
   .footer-grid {
     @include xy-grid-container;
     @include xy-grid;
     padding: rem-calc(10) 0;
 
     section {
-      @include xy-cell(auto);
-      @include breakpoint(small down) {
+      @include xy-cell($size: auto, $gutters: 0);
+      @include breakpoint(medium down) {
         text-align: center;
+      }
+      @include breakpoint (small down) {
+        @include xy-cell($size: 1 of 1);
       }
     }
     p {
       margin-bottom: 0;
       font-size: 0.8rem;
-      color: $sub_footer_color;
+      color: $sub-footer-color;
     }
 
     a {
-      color: $sub_footer_color;
+      color: $sub-footer-color;
       &:hover {
         color: $primary-color;
       }

@@ -1,0 +1,79 @@
+// For all Blog/Search/Custom Post Type Search Results
+.archive {
+  @include xy-grid();
+  $blog-bg: lighten($light-gray, 5%);
+  a.blog {
+    color: $black;
+    transition: $animate-1;
+
+    @include xy-cell($size: 1 of 4, $gutters: 0);
+    @include breakpoint (medium down) {
+      @include xy-cell($size: 1 of 2, $gutters: 0);
+    }
+    @include breakpoint (small down) {
+      @include xy-cell($size: 1 of 1, $gutters: 0);
+    }
+    .wrapper {
+      padding: 0.5rem;
+
+      header {
+        overflow: hidden;
+        min-height: 160px;
+        .featured-image {
+          transition: $animate-6;
+          min-height: 160px;
+          background-color: $blog-bg;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      main {
+        padding: 1rem 1rem 1.5rem;
+        background-color: $blog-bg;
+        h3 {
+          line-height: 1.1;
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
+        }
+        p {
+
+        }
+      }
+      footer {
+        background-color: $blog-bg;
+        padding: 1rem;
+        .cta {
+          span {
+            @extend .button;
+            width: 100%;
+          }
+        }
+      }
+    }
+    &:hover {
+      transform: scale(1.05);
+      header {
+        .featured-image {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+  a.search-result {
+    @include xy-cell(1 of 1);
+    margin-bottom: 1rem;
+    .wrapper {
+      padding: 1rem;
+      background-color: $blog-bg;
+      h3, p {
+        color: $black;
+      }
+      .cta {
+        span {
+          @extend .button;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

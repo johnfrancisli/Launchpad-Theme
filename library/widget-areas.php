@@ -20,6 +20,18 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 			)
 		);
 
+        register_sidebar(
+            array(
+                'id'            => 'upper-footer-widgets',
+                'name'          => __( 'Upper Footer widgets', 'foundationpress' ),
+                'description'   => __( 'Drag widgets to this footer container. The Sub Footer will NOT show if there are no items inside this section.', 'foundationpress' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h6>',
+                'after_title'   => '</h6>',
+            )
+        );
+
 		register_sidebar(
 			array(
 				'id'            => 'footer-widgets',

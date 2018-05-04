@@ -1,11 +1,11 @@
 // Navigation Global
-$mobile-nav-burger-color: $white;
-$mobile-nav-burger-active-color: $white; // Color when clicked
-$mobile-nav-bar-bg-color: darken($primary-color, 20%);
-$mobile-nav-bar-sticky-bg-color: darken($primary-color, 20%);
+$mobile-nav-burger-color: $dark-gray;
+$mobile-nav-burger-active-color: $dark-gray; // Color when clicked
+$mobile-nav-bar-bg-color: $white;
+$mobile-nav-bar-sticky-bg-color: $white;
 $mobile-nav-bg-color: $light-gray;
-$mobile-nav-color: $primary-color;
-$mobile-nav-hover-color: darken($mobile-nav-color, 20%);
+$mobile-nav-color: $dark-gray;
+$mobile-nav-hover-color: $primary-color;
 $mobile-nav-hover-bg: transparent;
 $mobile-nav-active-color: $white;
 $mobile-nav-active-bg: $dark-gray;

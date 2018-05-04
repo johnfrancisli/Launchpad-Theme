@@ -1,0 +1,62 @@
+#blog-single {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  .header {
+    @include xy-grid();
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .title {
+      @include xy-cell($size: auto, $gutters: 0);
+      padding-right: 2rem;
+      @include breakpoint (medium down) {
+        @include xy-cell($size: 1 of 1, $gutters: 0);
+        padding-right: 0;
+      }
+      h1 {
+        line-height: 1;
+      }
+
+    }
+    .meta {
+      @include xy-cell($size: shrink, $gutters: 0);
+      padding-left: 2rem;
+      border-left: 1px solid $black;
+      @include breakpoint (medium down) {
+        @include xy-cell($size: 1 of 1, $gutters: 0);
+        text-align: center;
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      @extend .valigncenter;
+      text-transform: uppercase;
+
+    }
+
+  }
+  .entry-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .blog-nav {
+  }
+
+  .post-navigation {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    .nav-previous a {
+      &:before {
+        font-family: "Font Awesome 5 Pro";
+        content: '\f053';
+        margin-right: 0.5rem;
+      }
+    }
+    .nav-next a {
+      &:after {
+        font-family: "Font Awesome 5 Pro";
+        content: '\f054';
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

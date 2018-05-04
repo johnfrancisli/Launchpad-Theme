@@ -1,0 +1,8 @@
+.main-container {
+  @extend .container-viewport;
+  .main-grid {
+    @extend .container-content;
+    .main-content {
+    }
+  }
+}

@@ -3,39 +3,59 @@
   // This is the wrapper of everything including the <form> tag
   form {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     .gform_body {
       ul.gform_fields {
         margin-left: 0;
         list-style: none;
         li.gfield {
           position: relative;
-
+          font-size: 1.5rem;
+          text-transform: uppercase;
           // Name Fields
           .ginput_container_name {
             span {
               position: relative;
               display: block;
             }
-          }
-          // End of Name Fields
-
-          label {
-            position: absolute;
-            text-transform: uppercase;
-            color: $dark-gray;
-            padding: 0.5rem;
-            line-height: 1;
-            &.focus {
-
+            label {
+              display: none;
             }
           }
+          // End of Name Fields
+          textarea {
+            max-height: 7rem;
+          }
 
-
+          label {
+            color: #4d667a;
+            font-size: 1rem;
+          }
         }
       }
     }
     .gform_footer {
-
+      .gform_button {
+        width: 100%;
+        @extend .button;
+      }
     }
+  }
+}
+
+// Search Form
+#searchform {
+  .input-group-field {
+    border-radius: 3px;
+  }
+}
+
+// Input
+[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+  border-radius: 3px;
+  padding: 0.5rem 0.75rem;
+  &:focus {
+    border-color: darken($medium-gray, 20%);
+    box-shadow: 0 0 2px $medium-gray;
   }
 }

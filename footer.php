@@ -16,6 +16,11 @@ if (is_array($hide_elements) && in_array('hidefooter', $hide_elements)) :
 endif;
 if ($show_footer) : ?>
     <footer class="footer">
+        <div class="upper-footer-container">
+            <div class="footer-grid">
+                <?php dynamic_sidebar('upper-footer-widgets'); ?>
+            </div>
+        </div>
         <div class="footer-container">
             <div class="footer-grid">
                 <?php dynamic_sidebar('footer-widgets'); ?>

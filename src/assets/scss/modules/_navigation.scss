@@ -13,18 +13,21 @@
 // Header Container
 #header-container {
   // The container of the page that expands to a certain px (2000px)
-  @extend .container-viewport;
+  //@extend .container-viewport;
   margin-top: 0;
   z-index: 10;
   header.site-header {
+
     .navigation-desktop-container {
       transition: $animate-0;
+      @extend .container-viewport;
       background-color: $nav-color;
     }
   }
 
   // Transparent Header?
   &.transparent { // Transparent Header
+
     position: fixed;
     width: 100%;
     z-index: 100;

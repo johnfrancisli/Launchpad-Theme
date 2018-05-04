@@ -1,113 +1,206 @@
-$desktop-nav-color: $white;
-$desktop-nav-sticky-color: $primary-color;
-$desktop-nav-utility-sticky-color: $primary-color;
+// Default Header Nav
+$desktop-nav-color: $dark-gray;
+$desktop-nav-hover-color: $primary-color;
+// Transparent Header
+$desktop-nav-transparent-color: $white;
+$desktop-nav-transparent-hover-color: $secondary-color;
+// Sticky Navigation
+$desktop-nav-sticky-color: $desktop-nav-color;
+$desktop-nav-sticky-hover-color: $desktop-nav-hover-color;
+// Utility Sticky Navigation
+$desktop-nav-utility-sticky-color: $desktop-nav-color;
+$desktop-nav-utility-sticky-hover-color: $desktop-nav-hover-color;
+// Dropdown Menu
+$desktop-nav-dropdown-color: $desktop-nav-color;
+$desktop-nav-dropdown-hover-color: $desktop-nav-hover-color;
+
 $desktop-nav-dropdown-menu-bg: $nav-color;
 // Top Container
-
-#navigation-desktop {
-  background-color: transparent;
-  // Set content to be content length
-  @extend .container-content;
-  .top-bar-left {
-    // Logo
-    .logo {
-      img {
-        max-width: 200px;
-        height: auto;
-      }
+#header-container {
+  width: 100%;
+  .navigation-desktop-container {
+    position: relative;
+    // Bottom Border
+    &:after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-image: url(../images/ui/drop-shadow.png);
+      background-repeat: no-repeat;
+      background-position: center top;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 20px;
+      background-size: contain;
     }
   }
-  .top-bar-right {
-    // Utility Navigation
-    ul.desktop-menu-utility {
-      @extend .align-right;
-      // Parent Menu item
-      >li {
-        >a {
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          color: $desktop-nav-color;
-          &:hover,
-          &:focus {
-            color: darken($desktop-nav-color,20%);
-          }
-        }
-        // If the page is the current menu item, this will show:
-        &.is-active a {
-          color: $desktop-nav-color;
+  #navigation-desktop {
+    background-color: transparent;
+    // Set content to be content length
+    @extend .container-content;
+    .top-bar-left {
+      // Logo
+      .logo {
+        img {
+          // Top Transparency to Light
+          transition: $animate-0;
+          width: 200px;
+          height: auto;
         }
       }
     }
-    // Main Navigation
-    ul.desktop-menu {
-      // Parent Menu Item
-      >li {
-        // DEFAULT
-        >a {
-          color: $desktop-nav-color;
-          text-transform: uppercase;
-          font-weight: bold;
-          &:hover,
-          &:focus {
-            color: darken($desktop-nav-color,20%);
-          }
-        }
-        // ACTIVE - If the page is the current menu item, this will show:
-        &.is-active >a {
-          color: darken($desktop-nav-color,10%);
-        }
-        // DROPDOWN MENU
-        &.is-dropdown-submenu-parent {
-          >a {
-            padding-right: 1rem; // This removes the padding for the triangle dropdown icon
-            &:after {
-              display: none; // This removes the triangle icon
-            }
-          }
-        }
-
-        // Dropdown Submenu
-        .is-dropdown-submenu {
-          background-color: $desktop-nav-dropdown-menu-bg;
-          border: 0;
-          .is-dropdown-submenu-item {
-            a {
-
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// Sticky Header
-header.sticky {
-  // Scrolled Down
-  &.is-stuck {
-    #navigation-desktop {
+    .top-bar-right {
+      // Utility Navigation
       ul.desktop-menu-utility {
+        @extend .align-right;
         // Parent Menu item
-        >li {
-          >a {
-            font-size: 0.9rem;
+        > li {
+          > a {
+            font-size: 1rem;
             text-transform: uppercase;
-            color: $desktop-nav-utility-sticky-color;
+            color: $desktop-nav-color;
             &:hover,
             &:focus {
-              color: darken($desktop-nav-utility-sticky-color,20%);
+              color: $desktop-nav-hover-color;
             }
           }
           // If the page is the current menu item, this will show:
           &.is-active a {
-            color: $desktop-nav-utility-sticky-color;
+            color: $desktop-nav-color;
           }
         }
       }
+      // Main Navigation
       ul.desktop-menu {
-        >li {
-          >a {
-            color: $desktop-nav-sticky-color;
+        // Parent Menu Item
+        > li {
+          // DEFAULT
+          > a {
+            color: $desktop-nav-color;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            &:hover,
+            &:focus {
+              color: $desktop-nav-hover-color;
+            }
+          }
+          // ACTIVE - If the page is the current menu item, this will show:
+          &.is-active > a {
+            color: $desktop-nav-hover-color;
+          }
+          // DROPDOWN MENU
+          &.is-dropdown-submenu-parent {
+            > a {
+              padding-right: 1rem; // This removes the padding for the triangle dropdown icon
+              &:after {
+                display: none; // This removes the triangle icon
+              }
+            }
+          }
+
+          // Dropdown Submenu
+          .is-dropdown-submenu {
+            background-color: $desktop-nav-dropdown-menu-bg;
+            border: 0;
+            .is-dropdown-submenu-item {
+              a {
+                text-transform: uppercase;
+                color: $desktop-nav-dropdown-color;
+                &:hover {
+                  color: $desktop-nav-dropdown-hover-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // Transparent Desktop
+  &.transparent {
+    .navigation-desktop-container {
+      &:after {
+        display: none;
+      }
+    }
+    #navigation-desktop {
+      .top-bar-left {
+        .logo {
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+      .top-bar-right {
+        ul.desktop-menu-utility {
+          > li {
+            > a {
+              color: $desktop-nav-transparent-color;
+              &:hover {
+                color: $desktop-nav-transparent-hover-color;
+              }
+            }
+          }
+        }
+        ul.desktop-menu {
+          > li {
+            > a {
+              color: $desktop-nav-transparent-color;
+              &:hover {
+                color: $desktop-nav-transparent-hover-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // Sticky Header
+  header.sticky {
+    // Scrolled Down
+    &.is-stuck {
+      .navigation-desktop-container {
+        &:after {
+          display: block;
+        }
+        #navigation-desktop {
+          .top-bar-left {
+            // Logo
+            .logo {
+              img {
+                // Remove Filter
+                filter: none;
+              }
+            }
+          }
+          ul.desktop-menu-utility {
+            // Parent Menu item
+            > li {
+              > a {
+                color: $desktop-nav-utility-sticky-color;
+                &:hover,
+                &:focus {
+                  color: $desktop-nav-utility-sticky-hover-color;
+                }
+              }
+              // If the page is the current menu item, this will show:
+              &.is-active a {
+                color: $desktop-nav-utility-sticky-hover-color;
+              }
+            }
+          }
+          ul.desktop-menu {
+            > li {
+              > a {
+                color: $desktop-nav-sticky-color;
+                &:hover,
+                &:focus {
+                  color: $desktop-nav-sticky-hover-color;
+                }
+              }
+            }
           }
         }
       }

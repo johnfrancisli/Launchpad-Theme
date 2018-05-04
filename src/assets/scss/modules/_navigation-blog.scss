@@ -1,0 +1,45 @@
+// Blog Top Navigation
+.blog-nav {
+  padding: 0.5rem;
+  border-bottom: 1px solid $light-gray;
+  @include xy-grid;
+  .category {
+    @include xy-cell($size: 2 of 3, $gutters: 0);
+    @include breakpoint (small down) {
+      @include xy-cell($size: 1 of 1);
+    }
+    // Desktop Version
+    #desktop-category-navigation {
+      @include show-for(nav);
+      list-style: none;
+      margin-left: 0;
+      li {
+        display: inline-block;
+        a {
+          @extend .button;
+          @extend .light-gray;
+          letter-spacing: 0;
+          font-size: 0.9rem;
+          box-shadow: none;
+        }
+      }
+    }
+    // Mobile Version
+    #mobile-category-navigation {
+      @include hide-for(nav);
+      //TODO: Fix this part
+      background-color: $light-gray;
+    }
+  }
+  .search {
+    @include xy-cell($size: 1 of 3, $gutters: 0);
+    #searchsubmit {
+      @extend .button;
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
+    }
+    @include breakpoint (small down) {
+      @include xy-cell($size: 1 of 1);
+    }
+  }
+}

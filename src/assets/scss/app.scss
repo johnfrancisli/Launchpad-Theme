@@ -76,11 +76,13 @@
 @import "modules/navigation";
 @import "modules/navigation-mobile";
 @import "modules/navigation-desktop";
+@import "modules/navigation-blog";
 @import "modules/content";
 @import "modules/footer";
 @import "modules/footer-main";
 @import "modules/footer-sub";
 @import "modules/editor-style";
+@import "modules/search-results";
 
 // Components
 @import "components/buttons";
@@ -89,8 +91,12 @@
 @import "components/dividers";
 @import "components/links";
 @import "components/forms";
+@import "components/breadcrumbs";
 
 // Templates
+@import "templates/default";
+@import "templates/blog";
+@import "templates/blog-single";
 @import "templates/front";
 @import "templates/kitchen-sink";
 @import "templates/404";

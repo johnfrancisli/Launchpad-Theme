@@ -72,15 +72,20 @@ $global-width: rem-calc(1200);
 $global-max-width: rem-calc(2000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #3cc7f7,
-  secondary: #767676,
+  primary: #4cdef5,
+  secondary: #a4d555,
+  tertiary: #ff5992,
+  quaternary: #841983,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
+$tertiary-color: get-color(tertiary);
+$quaternary-color: get-color(quaternary);
+
 $light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$medium-gray: #999999;
+$dark-gray: #333333;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;

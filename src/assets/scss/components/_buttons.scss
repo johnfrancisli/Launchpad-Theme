@@ -1,8 +1,89 @@
 .button {
-  background: $primary-color;
-  font-size: 1.25rem;
+  background-color: $secondary-color;
+  font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
   border-radius: 3px;
   border: none;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    color: $white;
+  }
+  @include breakpoint (medium down) {
+    margin: 0 auto;
+  }
+  @include breakpoint (small down) {
+    width: 100%;
+  }
+}
+// Colours
+.primary {
+  background-color: $primary-color;
+  color: $white;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    color: $white;
+  }
+}
+.secondary {
+  background-color: $secondary-color;
+  color: $white;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    color: $white;
+  }
+}
+.tertiary {
+  background-color: $tertiary-color;
+  color: $white;
+  &:hover {
+    background-color: darken($tertiary-color, 10%);
+    color: $white;
+  }
+}
+.quaternary {
+  background-color: $quaternary-color;
+  color: $white;
+  &:hover {
+    background-color: darken($quaternary-color, 10%);
+    color: $white;
+  }
+}
+.light-gray {
+  background-color: $light-gray;
+  color: $black;
+  &:hover {
+    background-color: darken($light-gray, 10%);
+    color: $black;
+  }
+}
+
+// For Visual Composer
+.cta {
+  a {
+    @extend .button;
+  }
+  &.primary {
+       a {
+         @extend .primary;
+       }
+     }
+  &.secondary {
+       a {
+         @extend .secondary;
+       }
+     }
+  &.tertiary {
+    a {
+      @extend .tertiary;
+    }
+  }
+  &.quaternary {
+    a {
+      @extend .quaternary;
+    }
+  }
 }

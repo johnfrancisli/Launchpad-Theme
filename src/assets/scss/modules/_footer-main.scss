@@ -1,19 +1,115 @@
+$footer-bg-color: #2c353e;
+$footer-color: $white;
 
-.footer-container {
-  background-color: transparent;
-  .footer-grid {
-    @include xy-grid-container;
-    @include xy-grid;
-    padding: rem-calc(30) 0;
+footer.footer {
+  width: 100%;
+  .upper-footer-container {
+    @extend .container-viewport;
+    background-color: $footer-bg-color;
+    .footer-grid {
+      @include xy-grid-container;
+      @include xy-grid;
+      padding: rem-calc(30) 0 0;
+      color: $footer-color;
+      border-bottom: 1px solid $medium-gray;
+      section {
+        @include xy-cell($size: auto, $gutters: 0);
+        &.address {
+          text-align: right;
+          font-size: 0.9rem;
+          @include breakpoint (medium down) {
+            @include xy-cell($size: auto);
+            text-align: center;
+          }
+        }
+      }
 
-    section {
-      @include xy-cell(auto);
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
     }
+  }
+  .footer-container {
+    @extend .container-viewport;
+    background-color: $footer-bg-color;
+    .footer-grid {
+      @include xy-grid-container;
+      @include xy-grid;
+      padding: rem-calc(30) 0 0;
+      color: $footer-color;
+      section {
+        //@include xy-cell($size: auto, $gutters: 0);
+        &.footer-menu {
+          @include xy-cell($size: 2 of 3, $gutters: 0);
+          @include breakpoint (medium down) {
+            @include xy-cell($size: 1 of 1);
+            margin-bottom: 1rem;
+          }
+          ul.menu {
+            @include xy-grid();
+            @include breakpoint(medium down) {
+              justify-content: center;
+            }
+            @include breakpoint(small down) {
+              justify-content: left;
+            }
+            li {
+              @include breakpoint(medium) {
+                &:first-child {
+                  a {
+                    padding-left: 0;
+                  }
+                }
+              }
+              @include breakpoint(small down) {
+                @include xy-cell($size: 1 of 2);
+              }
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+              a {
+                color: $white;
+                &:hover {
+                  color: $primary-color;
+                }
+              }
+              &.is-active {
+                a {
+                  background-color: transparent;
+                }
+              }
+            }
+          }
+        }
+        &.social {
+          text-align: right;
+          @include xy-cell($size: 1 of 3, $gutters: 0);
+          @include breakpoint (medium down) {
+            @include xy-cell($size: 1 of 1);
+            text-align: center;
+          }
+
+          a i {
+            font-size: 1.5rem;
+            transition: $animate-1;
+            color: $white;
+            padding: 0 0.5rem;
+            :last-child {
+              padding-right: 0;
+            }
+            &:hover {
+              transform: scale(1.2);
+              color: $primary-color;
+            }
+          }
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 }

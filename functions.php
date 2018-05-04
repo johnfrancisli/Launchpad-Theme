@@ -23,6 +23,9 @@ require_once( 'library/foundation.php' );
 /** Format comments */
 require_once( 'library/class-foundationpress-comments.php' );
 
+/** Global Functions */
+require_once( 'library/function-global.php');
+
 /** Register all navigation menus */
 require_once( 'library/navigation.php' );
 
@@ -32,6 +35,7 @@ require_once( 'library/class-foundationpress-mobile-walker.php' );
 
 /** Create widget areas in sidebar and footer */
 require_once( 'library/widget-areas.php' );
+require_once( 'library/widget-social.php' );
 
 /** Return entry meta information for posts */
 require_once( 'library/entry-meta.php' );
