@@ -1,10 +1,13 @@
 // Blog Top Navigation
-.blog-nav {
+#blog-nav {
   padding: 0.5rem;
   border-bottom: 1px solid $light-gray;
   @include xy-grid;
   .category {
     @include xy-cell($size: 2 of 3, $gutters: 0);
+    @include breakpoint (medium down) {
+      @include xy-cell($size: 1 of 2, $gutters: 0);
+    }
     @include breakpoint (small down) {
       @include xy-cell($size: 1 of 1);
     }
@@ -18,28 +21,74 @@
         a {
           @extend .button;
           @extend .light-gray;
-          letter-spacing: 0;
-          font-size: 0.9rem;
-          box-shadow: none;
+          @extend .small;
         }
       }
     }
     // Mobile Version
     #mobile-category-navigation {
       @include hide-for(nav);
-      //TODO: Fix this part
       background-color: $light-gray;
+      margin-bottom: 1rem;
+      border-radius: 3px;
+      width: 300px;
+
+      @include breakpoint (small down) {
+        width: 100%;
+      }
+      > li {
+        width: 100%;
+        > a {
+          line-height: 1.5;
+          width: 100%;
+          color: $black;
+          font-weight: bold;
+          padding: 0.5rem 0.75rem;
+          &:hover,&:focus {
+            background-color: darken($light-gray, 10%);
+          }
+          &:after {
+            border: 0;
+            font-family: "Font Awesome 5 Pro";
+            content: '\f078';
+            right: 2rem;
+            top: 0.5rem;
+            margin-top: 0;
+          }
+
+        }
+        // Dropdown Submenu
+        .is-dropdown-submenu {
+          min-width: 100%;
+          border: 0;
+          li {
+            a {
+              color: $black;
+              background-color: $light-gray;
+              &:hover, &:focus {
+                background-color: darken($light-gray, 10%);
+              }
+            }
+          }
+        }
+      }
     }
   }
   .search {
     @include xy-cell($size: 1 of 3, $gutters: 0);
     #searchsubmit {
       @extend .button;
-      margin-left: 0.5rem;
       font-size: 0.9rem;
+    }
+    .input-group-field {
+      margin-right: 0.5rem;
+    }
+    @include breakpoint (medium down) {
+      @include xy-cell($size: 1 of 2, $gutters: 0);
     }
     @include breakpoint (small down) {
       @include xy-cell($size: 1 of 1);
     }
   }
+
 }

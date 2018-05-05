@@ -20,7 +20,7 @@ get_header(); ?>
         <div class="main-grid">
             <main class="main-content">
                 <h1><?php the_archive_title(); ?></h1>
-                <div class="blog-nav">
+                <div id="blog-nav">
                     <div class="category">
                         <?php get_template_part('template-parts/navigation', 'blog'); ?>
                     </div>

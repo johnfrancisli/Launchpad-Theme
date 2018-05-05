@@ -21,7 +21,7 @@ get_header(); ?>
                 $posts_page = get_post(get_option('page_for_posts'));
                 echo apply_filters('the_content', $posts_page->post_content);
                 ?>
-                <div class="blog-nav">
+                <div id="blog-nav">
                     <div class="category">
                         <?php get_template_part('template-parts/navigation', 'blog'); ?>
                     </div>

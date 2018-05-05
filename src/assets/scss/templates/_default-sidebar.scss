@@ -1,0 +1,36 @@
+#default-sidebar {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  main {
+
+  }
+  aside {
+    .widget {
+      h6 {
+        font-size: 1.5rem;
+      }
+    }
+    // Navigation Menus
+    .widget_nav_menu {
+      ul.menu {
+        li {
+          width: 100%;
+          display: block;
+           a {
+            padding-left: 0;
+             &:hover, &:focus {
+               color: darken($primary-color, 10%);
+             }
+          }
+          &.is-active {
+            a {
+              background-color: transparent;
+              font-weight: bold;
+              color: darken($primary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header>
-        <div class="blog-nav">
+        <div id="blog-nav">
             <div class="category">
                 <?php get_template_part('template-parts/navigation', 'blog'); ?>
             </div>

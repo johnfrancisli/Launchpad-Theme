@@ -23,7 +23,7 @@
 .primary {
   background-color: $primary-color;
   color: $white;
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($primary-color, 10%);
     color: $white;
   }
@@ -31,7 +31,7 @@
 .secondary {
   background-color: $secondary-color;
   color: $white;
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($secondary-color, 10%);
     color: $white;
   }
@@ -39,7 +39,7 @@
 .tertiary {
   background-color: $tertiary-color;
   color: $white;
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($tertiary-color, 10%);
     color: $white;
   }
@@ -47,7 +47,7 @@
 .quaternary {
   background-color: $quaternary-color;
   color: $white;
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($quaternary-color, 10%);
     color: $white;
   }
@@ -55,10 +55,17 @@
 .light-gray {
   background-color: $light-gray;
   color: $black;
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($light-gray, 10%);
     color: $black;
   }
+}
+
+// Size
+.small {
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  box-shadow: none;
 }
 
 // For Visual Composer
