@@ -1,12 +1,11 @@
 .featured-hero {
   @extend .container-viewport;
   margin: 0 auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: rem-calc(100);
   position: relative;
+
   // Content and Overlay
+  .bg-image,
   .overlay,
   .container {
     position: absolute;
@@ -15,17 +14,18 @@
     width: 100%;
     height: 100%;
   }
+  // Background Image
+  .bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   // Overlay
   .overlay {
     z-index: 0;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#49aee5+0,4cdef5+100&0.8+0,0.8+100 */
-    background: -moz-linear-gradient(-45deg, rgba(73, 174, 229, 0.8) 0%, rgba(76, 222, 245, 0.8) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, rgba(73, 174, 229, 0.8) 0%, rgba(76, 222, 245, 0.8) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, rgba(73, 174, 229, 0.8) 0%, rgba(76, 222, 245, 0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc49aee5', endColorstr='#cc4cdef5', GradientType=1); /* IE6-9 fallback on horizontal gradient */
     // Mobile Responsive BG
     @include breakpoint (medium down) {
-      background-color: rgba(darken($primary-color, 10%), 0.7);
+      background-color: rgba($white, 0.8);
     }
   }
   .container {
