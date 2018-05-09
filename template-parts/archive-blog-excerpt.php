@@ -11,7 +11,7 @@
 $featured_image = get_stylesheet_directory_uri() . "/dist/assets/images/ui/placeholder.png";
 ?>
 
-<a class="blog" href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<a class="" href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="wrapper">
         <header>
             <div class="featured-image" style="background-image: url('<?php echo $featured_image; ?>');"></div>

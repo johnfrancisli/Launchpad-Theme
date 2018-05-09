@@ -186,8 +186,10 @@ $desktop-nav-dropdown-menu-bg: $nav-color;
                 }
               }
               // If the page is the current menu item, this will show:
-              &.is-active a {
-                color: $desktop-nav-utility-sticky-hover-color;
+              &.is-active {
+                > a {
+                  color: $desktop-nav-utility-sticky-hover-color;
+                }
               }
             }
           }
