@@ -7,8 +7,11 @@
  * @since FoundationPress 1.0.0
  */
 
-
-$featured_image = get_stylesheet_directory_uri() . "/dist/assets/images/ui/placeholder.png";
+if (has_post_thumbnail($post->ID)) {
+    $featured_image = get_the_post_thumbnail_url($post->ID, 'full');
+} else {
+    $featured_image = get_stylesheet_directory_uri() . "/dist/assets/images/ui/placeholder.png";
+}
 ?>
 
 <a class="" href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
