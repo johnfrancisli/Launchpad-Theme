@@ -3,7 +3,8 @@
 // to select the optimal image size per named media query.
 if (has_post_thumbnail($post->ID)) : ?>
     <header class="featured-hero" role="banner">
-        <div class="bg-image" data-interchange="[<?php the_post_thumbnail_url('fp-small'); ?>, small], [<?php the_post_thumbnail_url('fp-medium'); ?>, medium], [<?php the_post_thumbnail_url('fp-large'); ?>, large], [<?php the_post_thumbnail_url('fp-xlarge'); ?>, xlarge]"></div>
+        <div class="bg-image"
+             data-interchange="[<?php the_post_thumbnail_url('fp-small'); ?>, small], [<?php the_post_thumbnail_url('fp-medium'); ?>, medium], [<?php the_post_thumbnail_url('fp-large'); ?>, large], [<?php the_post_thumbnail_url('fp-xlarge'); ?>, xlarge]"></div>
         <div class="overlay"></div>
         <?php
         $show_content = get_field('show_content');
@@ -28,9 +29,13 @@ if (has_post_thumbnail($post->ID)) : ?>
                     <<?php echo $sub_heading_type; ?>><?php echo $sub_heading; ?>
                 </<?php echo $sub_heading_type; ?>>
                 <?php } ?>
-                <div class="description"><?php echo $details; ?>
-                </div>
-                <div class="cta"><a class="button" href="<?php echo $cta_link; ?>"><?php echo $cta; ?></a></div>
+                <?php if (!empty($details)) { ?>
+                    <div class="description"><?php echo $details; ?>
+                    </div>
+                <?php } ?>
+                <?php if (!empty($cta)) { ?>
+                    <div class="cta"><a class="button" href="<?php echo $cta_link; ?>"><?php echo $cta; ?></a></div>
+                <?php } ?>
             </div>
             </div>
             </div>
