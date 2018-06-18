@@ -21,6 +21,9 @@
     &.vc_row-o-content-middle {
       flex-direction: row;
     }
+    &.vc_row-o-equal-height.vc_row-flex {
+      align-items: stretch;
+    }
   }
 }
 
@@ -32,6 +35,9 @@
   &.vc_row-o-equal-height.vc_row-flex,
   &.vc_row-o-content-middle {
     flex-direction: row;
+  }
+  &.vc_row-o-equal-height.vc_row-flex {
+    align-items: stretch;
   }
 
   &[data-vc-full-width="true"] {
