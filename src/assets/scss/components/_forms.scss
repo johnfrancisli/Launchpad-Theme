@@ -1,61 +1,334 @@
 // Gravity Forms
+.sublabel {
+  z-index: 2;
+  position: absolute;
+  display: inline-block;
+  top: -0.5rem;
+  background-color: $white;
+  left: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .gform_wrapper {
   // This is the wrapper of everything including the <form> tag
   form {
     margin-top: 2rem;
-    margin-bottom: 2rem;
     .gform_body {
       ul.gform_fields {
         margin-left: 0;
         list-style: none;
         li.gfield {
           position: relative;
-          font-size: 1.5rem;
-          text-transform: uppercase;
-          // Name Fields
-          .ginput_container_name {
-            span {
-              position: relative;
-              display: block;
+          input, select, textarea {
+            height: auto;
+            padding: 0.75rem 1rem 0.5rem;
+            box-shadow: none;
+            &:focus {
+              border-color: $anchor-color;
             }
-            label {
+          }
+          // To fix the arrow being too far on the right
+          select {
+            padding: 0.75rem 2rem 0.5rem 1rem;
+          }
+          // For non Complex Boxes
+          > .ginput_container {
+            margin-top: 2rem;
+          }
+          // Complex Form Fields
+          .ginput_complex {
+            @include xy-grid();
+            margin-top: 0;
+            span {
+              display: flex;
+            }
+            // Full Width
+            .ginput_full {
+              @include xy-cell($size: 1 of 1, $gutters: 0);
+            }
+            // Half Width Items
+            .name_first,
+            .name_last,
+            .ginput_left,
+            .ginput_right {
+              @include xy-cell($size: 1 of 2, $gutters: 0);
+            }
+            .name_first,
+            .ginput_left {
+              padding-right: 0.25rem;
+            }
+            .name_last,
+            .ginput_right {
+              padding-left: 0.25rem;
+            }
+            // General Items
+            .name_first,
+            .name_last,
+            .ginput_left,
+            .ginput_right,
+            .ginput_full {
+              label {
+                @extend .sublabel;
+              }
+              position: relative;
+              margin-top: 1rem;
+              @include breakpoint (small down) {
+                padding: 0;
+                @include xy-cell($size: 1 of 1, $gutters: 0);
+              }
+            }
+          }
+          // Multi Clear (time fields)
+          .clear-multi {
+            @include xy-grid();
+            .gfield_time_hour,
+            .gfield_time_minute,
+            .gfield_time_ampm {
+              @include xy-cell($size:auto, $gutters:0);
+              i {
+                display: none;
+              }
+            }
+            .gfield_time_hour {
+              input {
+                border-right: 0;
+              }
+            }
+            .gfield_time_ampm {
+              select {
+                border-left: 0;
+              }
+            }
+          }
+          // Required
+          .gfield_required {
+            color: $secondary-color;
+            margin-left: 0.25rem;
+          }
+          // Labels
+          > label {
+            @extend .sublabel;
+            &.gfield_label_before_complex {
+              position: relative;
+              top: auto;
+              left: auto;
+              text-transform: none;
+              background-color: transparent;
+              font-size: 1rem;
+              font-weight: bold;
+              padding: 0;
+            }
+          }
+          // NoLabel Items
+          &.no-label {
+            > .gfield_label {
               display: none;
             }
           }
-          // End of Name Fields
-          textarea {
-            max-height: 7rem;
+          // Checkboxes / Radios
+          .ginput_container_checkbox,
+          .ginput_container_radio {
+            margin-top: 1rem;
+          }
+          ul.gfield_radio,
+          ul.gfield_checkbox {
+            margin-left: 0;
+            list-style: none;
+            padding-top: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            @include xy-grid();
+            li {
+              @include xy-cell(auto);
+              position: relative;
+              @include breakpoint(small down) {
+                @include xy-cell($size: 1 of 1,$gutters: 0);
+              }
+              input {
+                position: absolute;
+                left: 0;
+                margin-bottom: 0;
+                top: 0.4rem;
+              }
+              label {
+                padding-left: 1rem;
+                position: relative;
+              }
+            }
           }
 
-          label {
-            color: #4d667a;
-            font-size: 1rem;
+          // Grid System
+          // Half Columns
+          &.col-6-left {
+            width: 50%;
+            @include breakpoint (medium up) {
+              padding-right: 0.25rem;
+            }
           }
+          &.col-6-right {
+            width: 50%;
+            @include breakpoint (medium up) {
+              padding-left: 0.25rem;
+            }
+          }
+          // Third Columns
+          &.col-4-start {
+            width: 33%;
+            @include breakpoint (medium up) {
+              padding-right: 0.25rem;
+            }
+          }
+          &.col-4-mid {
+            width: 33%;
+            @include breakpoint (medium up) {
+              padding-right: 0.25rem;
+              padding-left: 0.25rem;
+            }
+          }
+          &.col-4-end {
+            width: 33%;
+            @include breakpoint (medium up) {
+              padding-left: 0.25rem;
+            }
+          }
+
+
+          &.col-6-left,
+          &.col-6-right,
+          &.col-4-start,
+          &.col-4-mid,
+          &.col-4-end {
+            margin-top: 2rem;
+            display: inline-block;
+            box-sizing: border-box;
+            .ginput_container {
+              margin-top: 0;
+            }
+            ul.gfield_radio,
+            ul.gfield_checkbox {
+              margin-top: 0;
+            }
+            @include breakpoint (small down) {
+              width: 100%;
+            }
+          }
+
+
         }
       }
     }
-    .gform_footer {
-      .gform_button {
-        width: 100%;
-        @extend .button;
+  }
+  input[name=gform_send_resume_link_button],
+  .gform_button,
+  .gform_save_link {
+    display: inline-block;
+    line-height: 1;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    min-width: 200px;
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 1rem 1rem;
+    border: solid 1px $secondary-color;
+    color: $secondary-color;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    @include breakpoint (small down) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  input[name=gform_send_resume_link_button],
+  .gform_button {
+    background-color: $secondary-color;
+    color: $white;
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+  .gform_save_link {
+    background-color: transparent;
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      color: $white;
+    }
+  }
+
+
+
+  // Form Message
+  .form_saved_message {
+    word-break: break-word;
+  }
+  .validation_error {
+    background-color: $secondary-color;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: $white;
+  }
+  .validation_message {
+    color: $secondary-color;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+}
+
+.ui-datepicker {
+  padding: 1rem;
+  background-color: lighten($light-gray, 5%);
+
+  .ui-datepicker-header {
+    @include xy-grid();
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      @include xy-cell($size: 1 of 2, $gutters: 0);
+    }
+    .ui-datepicker-prev {
+      &:before {
+        font-family: "Font Awesome 5 Pro";
+        content: '\f053';
+        margin-right: 0.5rem;
+      }
+    }
+    .ui-datepicker-next {
+      text-align: right;
+      &:after {
+        font-family: "Font Awesome 5 Pro";
+        content: '\f054';
+        margin-left: 0.5rem;
+      }
+    }
+    // Months & Year
+    .ui-datepicker-title {
+      margin-top: 0.5rem;
+      @include xy-cell($size: 1 of 1, $gutters: 0);
+      @include xy-grid();
+      display: block;
+      .ui-datepicker-month,
+      .ui-datepicker-year {
+        display: inline-block;
+        @include xy-cell($size: 1 of 2, $gutters: 0);
+      }
+      .ui-datepicker-month {
+        width: 50%;
+      }
+      .ui-datepicker-year {
+        width: 50%;
       }
     }
   }
-}
-
-// Search Form
-#searchform {
-  .input-group-field {
-    border-radius: 3px;
-  }
-}
-
-// Input
-[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
-  border-radius: 3px;
-  padding: 0.5rem 0.75rem;
-  &:focus {
-    border-color: darken($medium-gray, 20%);
-    box-shadow: 0 0 2px $medium-gray;
+  // Calendar Table
+  .ui-datepicker-calendar {
+    th, td {
+      padding: 0.25rem;
+      text-align: center;
+    }
   }
 }
